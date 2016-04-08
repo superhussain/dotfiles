@@ -1,18 +1,18 @@
 " Nice to have
-syntax on		          		" enable syntax processing
+syntax on		          					" enable syntax processing
 
 " Encoding
-set encoding=utf-8				" utf-8 encoding
-set fileencoding=utf-8			" utf-8 encoding on files
+set encoding=utf-8							" utf-8 encoding
+set fileencoding=utf-8						" utf-8 encoding on files
 
 " Show statusbar
-set laststatus=2				" show statusbar
+set laststatus=2							" show statusbar
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 
 "##### VUNDLE #####################################
-set nocompatible              	" be iMproved, required
-filetype off                  	" required
+set nocompatible              				" be iMproved, required
+filetype off                  				" required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -33,15 +33,17 @@ Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'https://github.com/jiangmiao/auto-pairs'
+Plugin 'sjl/badwolf'
 
-call vundle#end()            	" required
-filetype plugin indent on    	" required
+call vundle#end()            				" required
+filetype plugin indent on    				" required
 
 
 "##### CUSTOM #####################################
-colorscheme Tomorrow-Night		" awesome colorscheme
-"set softtabstop=2   					" number of spaces in tab when editing
-set expandtab       					" tabs are spaces
+colorscheme badwolf							" awesome colorscheme
+"set softtabstop=2   						" number of spaces in tab when editing
+set expandtab       						" tabs are spaces
 set number              					" show line numbers
 set showcmd             					" show command in bottom bar
 set wildmenu            					" visual autocomplete for command menu
@@ -51,7 +53,7 @@ set incsearch           					" search as characters are entered
 "set hlsearch            					" highlight matches
 set foldenable          					" enable folding
 set autoread								" Set to auto read when a file is changed from the outside
-set omnifunc=syntaxcomplete#Complete    " enable omnicomplete
+set omnifunc=syntaxcomplete#Complete    	" enable omnicomplete
 
 set so=7
 let $LANG='en' 
@@ -121,7 +123,7 @@ let g:user_emmet_mode='a'    "enable all function in all mode.
 
 
 "##### AIRLINE ####################################
-let g:airline_theme="tomorrow"
+let g:airline_theme="badwolf"
 
 
 "##### GITGUTTER ##################################
@@ -145,6 +147,22 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
 
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <ENTER>: completion.
+inoremap <expr><ENTER>  pumvisible() ? "\<C-n>" : "\<ENTER>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
 
 "##### EXTRAS #####################################
 
@@ -158,21 +176,5 @@ try
     set undofile
 catch
 endtry
-
-" => Parenthesis/bracket
-vnoremap $1 <esc>`>a)<esc>`<i(<esc>
-vnoremap $2 <esc>`>a]<esc>`<i[<esc>
-vnoremap $3 <esc>`>a}<esc>`<i{<esc>
-vnoremap $$ <esc>`>a"<esc>`<i"<esc>
-vnoremap $q <esc>`>a'<esc>`<i'<esc>
-vnoremap $e <esc>`>a"<esc>`<i"<esc>
-
-" Map auto complete of (, ", ', [
-inoremap $1 ()<esc>i
-inoremap $2 []<esc>i
-inoremap $3 {}<esc>i
-inoremap $4 {<esc>o}<esc>O
-inoremap $q ''<esc>i
-inoremap $e ""<esc>i
 
 
