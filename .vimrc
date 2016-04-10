@@ -22,24 +22,25 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdTree'
-Plugin 'https://github.com/chriskempson/vim-tomorrow-theme.git'
-Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
+Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
-Plugin 'https://github.com/tpope/vim-haml.git'
-Plugin 'https://github.com/leafgarland/typescript-vim.git'
-Plugin 'https://github.com/wavded/vim-stylus.git'
+Plugin 'tpope/vim-haml'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'wavded/vim-stylus'
 Plugin 'fatih/vim-go'
 Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'https://github.com/jiangmiao/auto-pairs'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'sjl/badwolf'
-Plugin 'https://github.com/vim-scripts/xoria256.vim.git'
+Plugin 'vim-scripts/xoria256.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()            				" required
 filetype plugin indent on    				" required
@@ -166,6 +167,19 @@ let g:multi_cursor_quit_key='<Esc>'
 let g:multi_cursor_start_key='<C-d>'
 
 
+"##### SNIPPETS ###################################
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
+
 "##### EXTRAS #####################################
 
 " => Fast editing and reloading of vimrc configs
@@ -191,7 +205,7 @@ if has("autocmd")
    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-""" SYSTEM CLIPBOARD COPY & PASTE SUPPORT
+" SYSTEM CLIPBOARD COPY & PASTE SUPPORT
 set pastetoggle=<F2> "F2 before pasting to preserve indentation
 "Copy paste to/from clipboard
 vnoremap <C-c> "*y
