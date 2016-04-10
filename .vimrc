@@ -35,13 +35,18 @@ Plugin 'Shougo/neosnippet-snippets'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'https://github.com/jiangmiao/auto-pairs'
 Plugin 'sjl/badwolf'
+Plugin 'https://github.com/vim-scripts/xoria256.vim.git'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()            				" required
 filetype plugin indent on    				" required
 
 
 "##### CUSTOM #####################################
-colorscheme badwolf							" awesome colorscheme
+set t_Co=256								" set 256 color
+"colorscheme Tomorrow-Night					" awesome colorscheme
 "set softtabstop=2   						" number of spaces in tab when editing
 set expandtab       						" tabs are spaces
 set number              					" show line numbers
@@ -80,21 +85,6 @@ set tw=500
 set ai
 set si
 set wrap
-
-map <leader>pp :setlocal paste!<cr>
-
-" Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    endif
-    return ''
-endfunction
-
-" Make VIM remember position in file after reopen
-if has("autocmd")
-   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
 
 
 "##### NERDTREE ###################################
@@ -177,4 +167,21 @@ try
 catch
 endtry
 
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
+
+" Make VIM remember position in file after reopen
+if has("autocmd")
+   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+""" SYSTEM CLIPBOARD COPY & PASTE SUPPORT
+set pastetoggle=<F2> "F2 before pasting to preserve indentation
+"Copy paste to/from clipboard
+vnoremap <C-c> "*y
+map <silent><Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"
+map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
