@@ -61,7 +61,7 @@ set incsearch           					" search as characters are entered
 set foldenable          					" enable folding
 set autoread								" Set to auto read when a file is changed from the outside
 set omnifunc=syntaxcomplete#Complete    	" enable omnicomplete
-
+set clipboard=unnamed				" Allow pasting from system clipboard
 set so=7
 let $LANG='en' 
 set langmenu=en
