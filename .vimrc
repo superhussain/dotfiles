@@ -39,6 +39,7 @@ Plugin 'https://github.com/vim-scripts/xoria256.vim.git'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'terryma/vim-multiple-cursors'
 
 call vundle#end()            				" required
 filetype plugin indent on    				" required
@@ -152,6 +153,17 @@ inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " Close popup by <Space>.
 inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+
+"##### MULTICURSOR ################################
+let g:multi_cursor_use_default_mapping=0
+
+let g:multi_cursor_next_key='<C-d>'
+let g:multi_cursor_prev_key='<C-a>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+let g:multi_cursor_start_key='<C-d>'
 
 
 "##### EXTRAS #####################################
