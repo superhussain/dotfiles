@@ -41,6 +41,7 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'honza/vim-snippets'
+Plugin 'digitaltoad/vim-pug'
 
 call vundle#end()            				" required
 filetype plugin indent on    				" required
