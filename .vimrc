@@ -187,7 +187,7 @@ nnoremap <silent> <leader>d :GitGutterToggle<cr>
 
 "##### UltiSnips ###################################
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<ENTER>"
+let g:UltiSnipsExpandTrigger="<S-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
