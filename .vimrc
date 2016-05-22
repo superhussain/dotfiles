@@ -90,6 +90,7 @@ set tw=500
 set ai
 set si
 set wrap
+set mouse=a
 set guifont=Roboto\ Mono\ for\ Powerline
 
 
