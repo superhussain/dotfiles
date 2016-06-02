@@ -44,6 +44,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
+Plugin 'mhartington/oceanic-next'
 
 call vundle#end()            				" required
 filetype plugin indent on    				" required
@@ -51,7 +52,8 @@ filetype plugin indent on    				" required
 
 "##### CUSTOM #####################################
 set t_Co=256								" set 256 color
-"colorscheme Tomorrow-Night					" awesome colorscheme
+colorscheme OceanicNext					" awesome colorscheme
+set background=dark
 "set softtabstop=2   						" number of spaces in tab when editing
 set expandtab       						" tabs are spaces
 set number              					" show line numbers
@@ -92,6 +94,7 @@ set si
 set wrap
 set mouse=a
 set guifont=Roboto\ Mono\ for\ Powerline
+highlight Comment cterm=italic
 
 
 "##### NERDTREE ###################################
@@ -149,7 +152,7 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
-let g:airline_theme = 'badwolf'
+let g:airline_theme = 'oceanicnext'
 
 
 "##### GITGUTTER ##################################
