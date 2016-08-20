@@ -93,3 +93,13 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # reload zsh config
 alias zs="source ~/.zshrc"
+
+# set default editor to open files
+# export EDITOR=/Applications/TextEdit.app/Contents/MacOS/TextEdit
+# export EDITOR=/Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text
+
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8

@@ -46,6 +46,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'ervandew/supertab'
 Plugin 'mhartington/oceanic-next'
+" Plugin 'Yggdroot/indentLine'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 call vundle#end()            				" required
 filetype plugin indent on    				" required
@@ -55,7 +57,7 @@ filetype plugin indent on    				" required
 set t_Co=256								" set 256 color
 colorscheme OceanicNext					" awesome colorscheme
 set background=dark
-"set softtabstop=2   						" number of spaces in tab when editing
+" set softtabstop=2   						" number of spaces in tab when editing
 set expandtab       						" tabs are spaces
 set number              					" show line numbers
 set showcmd             					" show command in bottom bar
@@ -63,7 +65,7 @@ set wildmenu            					" visual autocomplete for command menu
 set lazyredraw          					" redraw only when we need to.
 set showmatch           					" highlight matching [{()}]
 set incsearch           					" search as characters are entered
-"set hlsearch            					" highlight matches
+set hlsearch            					" highlight matches
 set foldenable          					" enable folding
 set autoread								" Set to auto read when a file is changed from the outside
 set omnifunc=syntaxcomplete#Complete    	" enable omnicomplete
@@ -96,6 +98,8 @@ set wrap
 set mouse=a
 set guifont=Roboto\ Mono\ for\ Powerline
 highlight Comment cterm=italic
+" set t_ZH=^[[3m
+" set t_ZR=^[[23m
 
 "##### UltiSnips + YouCompleteMe ##################
 " function! g:UltiSnips_Complete()
@@ -160,6 +164,8 @@ let g:user_emmet_mode='a'    "enable all function in all mode.
 
 
 "##### AIRLINE ####################################
+let g:airline#extensions#tabline#enabled = 1
+
 let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
@@ -291,3 +297,12 @@ set pastetoggle=<F2> "F2 before pasting to preserve indentation
 vnoremap <C-c> "*y
 map <silent><Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"
 map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
+
+
+let g:indent_guides_enable_on_vim_startup = 1
+set ts=2 sw=2 et
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_start_level = 1
+let g:indent_guides_guide_size = 2
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=239
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=238
